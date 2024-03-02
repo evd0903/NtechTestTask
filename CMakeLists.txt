@@ -4,4 +4,4 @@ project(TransposeMatrixAsync)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(TransposeMatrixAsync main.cpp Worker.h Worker.cpp)
+add_executable(TransposeMatrixAsync src/main.cpp src/Worker.h src/Worker.cpp)
