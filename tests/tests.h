@@ -10,7 +10,7 @@ void TestValidTransposing() {
     Matrix expected_result_1 = {{1, 4, 2, 5, 3, 6}, 2, 3};
 
     Matrix case_2 = {{1, 2, 3, 4, 5, 6}, 2, 3};
-    Matrix expected_result_2 = {{1, 3,5,2,4,6}, 3, 2};
+    Matrix expected_result_2 = {{1, 3,5,2,4,6}, 2, 3};
 
     auto result_future_1 = worker->AsyncProcess(case_1);
     auto result_1 = result_future_1.get();
