@@ -16,4 +16,6 @@ add_executable(ci_tests
     tests/tests.h
     tests/tests.cpp
     tests/test_runner.h
+    src/Worker.h
+    src/Worker.cpp
 )
