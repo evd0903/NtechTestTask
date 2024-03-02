@@ -19,3 +19,6 @@ add_executable(ci_tests
     src/Worker.h
     src/Worker.cpp
 )
+
+include(GoogleTest)
+gtest_discover_tests(ci_tests)
