@@ -4,12 +4,13 @@ std::shared_ptr<WorkerInterface> get_new_worker() {
     return std::make_shared<TransposeWorker>();
 }
 
-std::future<Matrix> TransposeWorker::AsyncProcess(Matrix input) {
-        std::lock_guard<std::mutex> lock(mutex_);
-        return std::async(std::launch::async, &TransposeWorker::Transpose, this, std::move(input));
+std::future<Matrix> TransposeWorker::AsyncProcess(Matrix& input) {
+    return std::async(std::launch::async, &TransposeWorker::Transpose, this, std::ref(input));
 }
 
-Matrix TransposeWorker::Transpose(Matrix input) {
+Matrix TransposeWorker::Transpose(Matrix& input) {
+    std::lock_guard<std::mutex> lock(mutex_);
+
     Matrix result;
     result.width = input.height;
     result.height = input.width;

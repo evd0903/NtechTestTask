@@ -20,17 +20,17 @@ public:
 
     virtual ~WorkerInterface() = default;
 
-    virtual std::future<Matrix> AsyncProcess(Matrix) = 0;
+    virtual std::future<Matrix> AsyncProcess(Matrix&) = 0;
 };
 
 std::shared_ptr<WorkerInterface> get_new_worker();
 
 class TransposeWorker : public WorkerInterface {
 public:
-    std::future<Matrix> AsyncProcess(Matrix input) override;
+    std::future<Matrix> AsyncProcess(Matrix& input) override;
 
 private:
-    Matrix Transpose(Matrix input);
+    Matrix Transpose(Matrix& input);
 
     std::mutex mutex_;
 };

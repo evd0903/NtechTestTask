@@ -11,8 +11,8 @@ bool operator==(const Matrix a, const Matrix b){
 }
 
 std::ostream& operator<<(std::ostream& os, const Matrix m) {
-  for (unsigned i = 0; i < m.height; ++i) {
-        for (unsigned j = 0; j < m.width; ++j) {
+  for (int i = 0; i < m.height; ++i) {
+        for (int j = 0; j < m.width; ++j) {
             std::cout << m.data[i * m.width + j] << " ";
         }
         std::cout << std::endl;
